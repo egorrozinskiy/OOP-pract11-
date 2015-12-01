@@ -17,18 +17,24 @@ ym=0
 rmax=0
 cmx=0
 cmy=0
-for i in range(0,N):
-    for k in range(i+1,N):
-        for j in range(i+2,N):
-            P=((A[i]-A[j])**2 + (A[j]-A[k])**2 + (A[k]-A[i])**2 + 
     s=input()
     a=Point(s)
     rm=((a.x)**2 + (a.y)**2)**0.5 
     cmx=cmx + a.x
     cmy=cmy + a.y
-    if 
     if rm>rmax:
         rmax=rm
         xm=a.x
-        ym=a.y       
+        ym=a.y   
+def maxPerimetr(coord):
+    maxPer = 0
+    for i in range(len(coord)):
+        for j in range(1, len(coord)):
+            for k in range(2, len(coord)):
+                per = dist(coord[i], coord[j]) + dist(coord[i], coord[k]) + dist(coord[k], arr[j])
+                if per > maxPer:
+                    maxPer = per
+    return maxPer                   
+def rast(a, b):
+    return ((a.x - b.x)**2 + (a.y - b.y)**2)**0.5
 print(xm,ym,cmx/N,cmy/N)  
